@@ -21,7 +21,7 @@ public class CassandraTest {
 	   client.close(); */
 	   
 	   MoviePersistence moviePer = new MoviePersistence("localhost", 9042);
-	   //moviePer.persistMovie("hello ghost", 2015, "scary move", "3.5", "4");
+	   moviePer.persistMovie("hello ghost", 2015, "scary move", "3.5", "4");
 	   Optional<Movie> m = moviePer.queryMovieByTitle("hello ghost");
 	   moviePer.close();
 	}

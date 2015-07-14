@@ -25,7 +25,7 @@ public class HelloWorldService {
 		String output = "Jersey say : ";
 		
 		MoviePersistence moviePer = new MoviePersistence("localhost", 9042);
-		   //moviePer.persistMovie("hello ghost", 2015, "scary move", "3.5", "4");
+		   //moviePer.persistMovie("ghost", 2015, "scary move", "3.5", "4");
 		   Optional<Movie> m = moviePer.queryMovieByTitle(msg);
 		   if (m != null)
 			   output += m.get().toString();
