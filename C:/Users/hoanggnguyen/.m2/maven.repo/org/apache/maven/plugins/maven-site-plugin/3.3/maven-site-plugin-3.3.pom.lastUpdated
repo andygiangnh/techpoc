@@ -1,4 +1,0 @@
-#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Wed Jul 08 14:27:04 SGT 2015
-http\://nexus.paypal.com/nexus/content/groups/public-all/.error=Could not transfer artifact org.apache.maven.plugins\:maven-site-plugin\:pom\:3.3 from/to paypal (http\://nexus.paypal.com/nexus/content/groups/public-all)\: nexus.paypal.com
-@default-http\://nexus.paypal.com/nexus/content/groups/public-all/.lastUpdated=1436336824721

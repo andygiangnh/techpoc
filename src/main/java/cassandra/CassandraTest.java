@@ -20,7 +20,7 @@ public class CassandraTest {
 	   client.connect(ipAddress, port);
 	   client.close(); */
 	   
-	   MoviePersistence moviePer = new MoviePersistence("localhost", 9042);
+	   MoviePersistence moviePer = new MoviePersistence();
 	   moviePer.persistMovie("hello ghost", 2015, "scary move", "3.5", "4");
 	   Optional<Movie> m = moviePer.queryMovieByTitle("hello ghost");
 	   moviePer.close();

@@ -11,27 +11,29 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import cassandra.Movie;
 import cassandra.MoviePersistence;
- 
+
+@Component
 @Path("/hello")
 public class HelloWorldService {
+	
+	@Autowired
+	MoviePersistence movieDAO;
  
 	@GET
 	@Path("/{param}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Movie getMsg(@PathParam("param") String msg) {
  
-		String output = "Jersey say : ";
-		
-		MoviePersistence moviePer = new MoviePersistence("localhost", 9042);
-		   //moviePer.persistMovie("ghost", 2015, "scary move", "3.5", "4");
-		   Optional<Movie> m = moviePer.queryMovieByTitle(msg);
-		   if (m != null)
-			   output += m.get().toString();
-		   else
-			   output += "Movie not found";
-		   moviePer.close();
+		   Optional<Movie> m = movieDAO.queryMovieByTitle(msg);
+		   if (m != null) {
+		} else {
+		}
+		   movieDAO.close();
 		
 		return m.get();
  
@@ -41,8 +43,7 @@ public class HelloWorldService {
 	@Path("/post")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createTrackInJSON(Movie movie) {
-		MoviePersistence moviePer = new MoviePersistence("localhost", 9042);
-		moviePer.persistMovie(movie.getTitle(), movie.getYear(), movie.getDescription(), movie.getMovieRow(), movie.getDustinRating());
+		movieDAO.persistMovie(movie.getTitle(), movie.getYear(), movie.getDescription(), movie.getMovieRow(), movie.getDustinRating());
 		String result = "Track saved : " + movie;
 		
 		return Response.status(201).entity(result).build();

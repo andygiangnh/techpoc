@@ -12,10 +12,10 @@ import static java.lang.System.out;
  */
 public class MoviePersistence {
 	private final CassandraConnector client = new CassandraConnector();
+	private final String newHost = "localhost";
+	private final int newPort = 9042;
 
-	public MoviePersistence(final String newHost, final int newPort) {
-		out.println("Connecting to IP Address " + newHost + ":" + newPort
-				+ "...");
+	public MoviePersistence() {
 		client.connect(newHost, newPort);
 	}
 
