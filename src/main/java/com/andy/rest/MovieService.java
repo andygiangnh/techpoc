@@ -1,4 +1,4 @@
-package com.mkyong.rest;
+package com.andy.rest;
  
 import java.util.Optional;
 
@@ -18,8 +18,8 @@ import cassandra.Movie;
 import cassandra.MoviePersistence;
 
 @Component
-@Path("/hello")
-public class HelloWorldService {
+@Path("/movie")
+public class MovieService {
 	
 	@Autowired
 	MoviePersistence movieDAO;
@@ -29,13 +29,11 @@ public class HelloWorldService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Movie getMsg(@PathParam("param") String msg) {
  
-		   Optional<Movie> m = movieDAO.queryMovieByTitle(msg);
-		   if (m != null) {
-		} else {
-		}
-		   movieDAO.close();
+	   Optional<Movie> m = movieDAO.queryMovieByTitle(msg);
+	   
+	   //movieDAO.close();
 		
-		return m.get();
+	   return m.get();
  
 	}
 	

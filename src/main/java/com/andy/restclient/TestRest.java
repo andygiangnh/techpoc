@@ -20,6 +20,7 @@ import org.codehaus.jettison.json.JSONObject;
 public class TestRest {
 	public static void main(String[] args) throws Exception {
 		restPost();
+		restGet();
 	}
 	
 	public static void restGet() throws ClientProtocolException, IOException {
