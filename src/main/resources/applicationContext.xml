@@ -6,8 +6,8 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
-	<context:component-scan base-package="com.mkyong.rest" />
+	<context:component-scan base-package="com.andy.rest" />
 	
-	<bean id="movieDAO" class="cassandra.MoviePersistence" />
+	<bean id="movieDAO" class="cassandra.MoviePersistence" scope="prototype"/>
  
 </beans>
