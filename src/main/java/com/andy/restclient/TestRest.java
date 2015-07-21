@@ -26,7 +26,7 @@ public class TestRest {
 	public static void restGet() throws ClientProtocolException, IOException {
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpGet request = new HttpGet(
-				"http://localhost:8080/RESTfulExample/rest/hello/postman");
+				"http://localhost:8080/RESTfulMovie/rest/movie/postman");
 		HttpResponse response = client.execute(request);
 		BufferedReader rd = new BufferedReader(new InputStreamReader(response
 				.getEntity().getContent()));
@@ -38,7 +38,7 @@ public class TestRest {
 
 	public static void restPost() throws JSONException, ClientProtocolException, IOException{
 		HttpClient client = HttpClientBuilder.create().build();
-		HttpPost post = new HttpPost("http://localhost:8080/RESTfulExample/rest/hello/post");
+		HttpPost post = new HttpPost("http://localhost:8080/RESTfulMovie/rest/movie/post");
 		  
 		JSONObject json = new JSONObject();
 		json.put("description", "mathematics problem with circle");
